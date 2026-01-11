@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>哈利波特主题简历</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .iframe-container {
+      box-sizing: border-box;
+      /* 移除了原有的顶部水印预留高度，调整为基础边距 */
+      padding: 20px;
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+    }
+
+    .content-iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: 0.5px solid #C9DACC;
+      border-radius: 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="iframe-container">
+    <iframe class="content-iframe" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;魔法简历 | Magical Resume&lt;/title&gt;
+  
+  &lt;!-- Tailwind CSS --&gt;
+  &lt;script src=&quot;https://metis-online.fbcontent.cn/metis-misc/zgLDUdmazTYc0B4K6Cor.js&quot;&gt;&lt;/script&gt;
+  &lt;!-- Anime.js --&gt;
+  &lt;script src=&quot;https://metis-online.fbcontent.cn/metis-misc/zZZY40t7WJC7UdQCPACm.js&quot;&gt;&lt;/script&gt;
+  
+  &lt;style&gt;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Georgia', 'Noto Serif SC', serif;
+      overflow-x: hidden;
+      background: #0D0D0D;
+    }
+    
+    /* 启动页样式 */
+    #splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(135deg, #0D0D0D 0%, #1A1A2E 50%, #0D0D0D 100%);
+      background-size: 200% 200%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      transition: opacity 0.8s ease;
+      animation: bgPulse 10s ease-in-out infinite;
+    }
+    
+    @keyframes bgPulse {
+      0%, 100% { background-position: 0% 50%;
+      }
+      50% { background-position: 100% 50%;
+      }
+    }
+    
+    #splash-screen.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .avatar-container {
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .avatar-container:hover {
+      transform: scale(1.05);
+    }
+    
+    /* 头像涟漪效果 */
+    .avatar-container::before,
+    .avatar-container::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 3px solid rgba(255, 215, 0, 0.6);
+      transform: translate(-50%, -50%);
+      animation: ripple 3s ease-out infinite;
+      pointer-events: none;
+    }
+    
+    .avatar-container::after {
+      animation-delay: 1.5s;
+    }
+    
+    @keyframes ripple {
+      0% {
+        width: 200px;
+        height: 200px;
+        opacity: 1;
+      }
+      100% {
+        width: 280px;
+        height: 280px;
+        opacity: 0;
+      }
+    }
+    
+    .avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 4px solid #FFD700;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+      animation: float 3s ease-in-out infinite;
+      position: relative;
+      z-index: 1;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px);
+      }
+      50% { transform: translateY(-20px);
+      }
+    }
+    
+    /* 音乐控制按钮 */
+    .music-control {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 50%;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 24px;
+      transition: all 0.3s ease;
+      z-index: 999;
+      border: 2px solid rgba(255, 215, 0, 0.5);
+    }
+    
+    .music-control:hover {
+      transform: scale(1.1);
+      background: rgba(255, 255, 255, 0.3);
+    }
+    
+    .music-control.active {
+      display: flex;
+    }
+    
+    /* 主界面样式 */
+    #main-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/picture/Sb4wQwxKU8TdmE3hPLoKVf.jpg');
+      background-size: 110%;
+      background-position: center;
+      display: none;
+      overflow-y: auto;
+      padding: 40px 10px;
+      animation: slowZoom 20s ease-in-out infinite;
+    }
+    
+    @keyframes slowZoom {
+      0%, 100% { background-size: 110%;
+      }
+      50% { background-size: 115%;
+      }
+    }
+    
+    #main-screen.active {
+      display: block;
+    }
+    
+    .title-section {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .main-title {
+      font-size: 2.5rem;
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: bold;
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+      margin-bottom: 10px;
+    }
+    
+    .subtitle {
+      color: #FFFFFF;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    
+    /* 旗帜容器 */
+    .banners-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .banner {
+      width: 200px;
+      height: 280px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 12px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* 每个旗帜独立的动画 */
+    .banner:nth-child(1) {
+      animation: wave1 4s ease-in-out infinite;
+    }
+    
+    .banner:nth-child(2) {
+      animation: wave2 4.5s ease-in-out infinite 0.5s;
+    }
+    
+    .banner:nth-child(3) {
+      animation: wave3 5s ease-in-out infinite 1s;
+    }
+    
+    .banner:nth-child(4) {
+      animation: wave4 4.2s ease-in-out infinite 1.5s;
+    }
+    
+    .banner:nth-child(5) {
+      animation: wave5 4.8s ease-in-out infinite 2s;
+    }
+    
+    .banner:nth-child(odd) {
+      transform: translateY(-20px);
+    }
+    
+    .banner:nth-child(even) {
+      transform: translateY(20px);
+    }
+    
+    .banner:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(255, 215, 0, 0.4);
+      filter: brightness(1.2);
+    }
+    
+    @keyframes wave1 {
+      0%, 100% { transform: translateY(-20px) rotate(-2deg);
+      }
+      50% { transform: translateY(-30px) rotate(1deg);
+      }
+    }
+    
+    @keyframes wave2 {
+      0%, 100% { transform: translateY(20px) rotate(2deg);
+      }
+      50% { transform: translateY(10px) rotate(-1deg);
+      }
+    }
+    
+    @keyframes wave3 {
+      0%, 100% { transform: translateY(-20px) rotate(1deg);
+      }
+      50% { transform: translateY(-28px) rotate(-2deg);
+      }
+    }
+    
+    @keyframes wave4 {
+      0%, 100% { transform: translateY(20px) rotate(-1deg);
+      }
+      50% { transform: translateY(12px) rotate(2deg);
+      }
+    }
+    
+    @keyframes wave5 {
+      0%, 100% { transform: translateY(-20px) rotate(2deg);
+      }
+      50% { transform: translateY(-32px) rotate(-1deg);
+      }
+    }
+    
+    .banner-label {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-align: center;
+      width: 90%;
+    }
+    
+    .banner-label .cn {
+      color: #FFD700;
+      font-size: 1.1rem;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .banner-label .en {
+      color: #FFFFFF;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    
+    /* 详情页样式 */
+    #detail-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/picture/LfsNk6BshF5XBs8x7ahaFW.jpg');
+      background-size: 105%;
+      background-position: center;
+      display: none;
+      overflow-y: auto;
+      padding: 40px 20px 100px 20px;
+      animation: paperFloat 15s ease-in-out infinite;
+    }
+    
+    @keyframes paperFloat {
+      0%, 100% { background-position: center;
+      background-size: 105%; }
+      50% { background-position: 52% 48%; background-size: 108%;
+      }
+    }
+    
+    #detail-screen.active {
+      display: block;
+    }
+    
+    .detail-content {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(244, 232, 208, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      border: 3px solid #8B4513;
+      position: relative;
+      overflow: visible;
+    }
+    
+    /* 活点地图墨水扩散遮罩效果 - 整体从模糊到清晰 */
+    .detail-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      border-radius: 16px;
+      z-index: 10;
+      pointer-events: none;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      transition: backdrop-filter 3s ease-out;
+    }
+    
+    .detail-content.revealing::before {
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+    }
+    
+    .detail-title {
+      color: #2C1810;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: bold;
+      border-bottom: 2px solid #8B4513;
+      padding-bottom: 15px;
+    }
+    
+    .resume-content {
+      color: #2C1810;
+      font-size: 1rem;
+      line-height: 1.8;
+      white-space: pre-wrap;
+      min-height: 300px;
+      position: relative;
+      z-index: 5;
+    }
+    
+    /* 文字从模糊到清晰的墨水扩散效果 */
+    .resume-content .char {
+      opacity: 0;
+      display: inline;
+      filter: blur(6px);
+      animation: inkReveal 0.8s forwards;
+    }
+    
+    @keyframes inkReveal {
+      0% {
+        opacity: 0;
+        filter: blur(6px);
+        transform: scale(0.9);
+      }
+      30% {
+        opacity: 0.3;
+        filter: blur(4px);
+      }
+      60% {
+        opacity: 0.7;
+        filter: blur(1px);
+      }
+      100% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: scale(1);
+      }
+    }
+    
+    .resume-content .section {
+      margin-bottom: 25px;
+    }
+    
+    .resume-content .section-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #8B4513;
+      margin-bottom: 10px;
+      border-left: 4px solid #FFD700;
+      padding-left: 10px;
+    }
+    
+    .back-button {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #9C1A1C, #FFD700);
+      color: #FFFFFF;
+      padding: 15px 40px;
+      border-radius: 50px;
+      border: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(156, 26, 28, 0.4);
+      transition: all 0.3s ease;
+      z-index: 100;
+    }
+    
+    .back-button:hover {
+      transform: translateX(-50%) translateY(-5px);
+      box-shadow: 0 15px 40px rgba(156, 26, 28, 0.6);
+    }
+    
+    /* 响应式适配 */
+    @media (max-width: 768px) {
+      .main-title {
+        font-size: 2rem;
+      }
+      
+      .subtitle {
+        font-size: 1rem;
+      }
+      
+      .banner {
+        width: 150px;
+        height: 220px;
+      }
+      
+      .detail-content {
+        padding: 30px 20px;
+      }
+      
+      .detail-title {
+        font-size: 1.5rem;
+      }
+      
+      .resume-content {
+        font-size: 0.9rem;
+      }
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- 启动页 --&gt;
+  &lt;div id=&quot;splash-screen&quot;&gt;
+    &lt;div class=&quot;avatar-container&quot; id=&quot;avatarBtn&quot;&gt;
+      &lt;img src=&quot;https://musk-online.fbcontent.cn/pub-musk-ai-studio/user/upload/20/GjokUKMQKzdWmQfr5P7C48.jpg&quot; alt=&quot;Avatar&quot;
+      class=&quot;avatar&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;!-- 音乐控制按钮 --&gt;
+  &lt;div class=&quot;music-control&quot; id=&quot;musicControl&quot;&gt;🎵&lt;/div&gt;
+  
+  &lt;!-- 主界面 --&gt;
+  &lt;div id=&quot;main-screen&quot;&gt;
+    &lt;div class=&quot;title-section&quot;&gt;
+      &lt;h1 class=&quot;main-title&quot;&gt;Flynn-He's Resume&lt;/h1&gt;
+      &lt;p class=&quot;subtitle&quot;&gt;Magical Resume&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div class=&quot;banners-container&quot;&gt;
+      &lt;!-- 基本信息 --&gt;
+      &lt;div class=&quot;banner&quot; data-house=&quot;gryffindor&quot; style=&quot;background-image: url('https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/picture/whfAapBskgChdYytpyZCy8.jpg');&quot;&gt;
+        &lt;div class=&quot;banner-label&quot;&gt;
+          &lt;span class=&quot;cn&quot;&gt;基本信息&lt;/span&gt;
+          &lt;span class=&quot;en&quot;&gt;Basic Info&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;!-- 工作经历 --&gt;
+      &lt;div class=&quot;banner&quot; data-house=&quot;slytherin&quot; style=&quot;background-image: url('https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/picture/Xm7xeQQiBtkxdBbPtiNApb.jpg');&quot;&gt;
+        &lt;div class=&quot;banner-label&quot;&gt;
+          &lt;span class=&quot;cn&quot;&gt;工作经历&lt;/span&gt;
+          &lt;span class=&quot;en&quot;&gt;Work Experience&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;!-- 荣誉与技能 --&gt;
+      &lt;div class=&quot;banner&quot; data-house=&quot;hufflepuff&quot; style=&quot;background-image: url('https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/picture/tDLjTkMbBWNJaE7SUtLHB6.jpg');&quot;&gt;
+        &lt;div class=&quot;banner-label&quot;&gt;
+          &lt;span class=&quot;cn&quot;&gt;荣誉与技能&lt;/span&gt;
+          &lt;span class=&quot;en&quot;&gt;Honors &amp; Skills&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;!-- 教育背景 --&gt;
+      &lt;div class=&quot;banner&quot; data-house=&quot;ravenclaw&quot; style=&quot;background-image: url('https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/picture/qeyqiyCY969xU57Br2P9UZ.jpg');&quot;&gt;
+        &lt;div class=&quot;banner-label&quot;&gt;
+          &lt;span class=&quot;cn&quot;&gt;教育背景&lt;/span&gt;
+          &lt;span class=&quot;en&quot;&gt;Education&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;!-- 教学宣言 --&gt;
+      &lt;div class=&quot;banner&quot; data-house=&quot;hogwarts&quot; style=&quot;background-image: url('https://musk-online.fbcontent.cn/pub-musk-ai-studio/workflow/file/picture/pDjCkfL5tVS68nDVnUN3BB.jpg');&quot;&gt;
+        &lt;div class=&quot;banner-label&quot;&gt;
+          &lt;span class=&quot;cn&quot;&gt;教学宣言&lt;/span&gt;
+          &lt;span class=&quot;en&quot;&gt;Teaching Oath&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;!-- 详情页 --&gt;
+  &lt;div id=&quot;detail-screen&quot;&gt;
+    &lt;div class=&quot;detail-content&quot;&gt;
+      &lt;h2 class=&quot;detail-title&quot; id=&quot;detailTitle&quot;&gt;&lt;/h2&gt;
+      &lt;div class=&quot;resume-content&quot; id=&quot;resumeContent&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class=&quot;back-button&quot; id=&quot;backBtn&quot;&gt;返回主界面 | Back to Main&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;!-- 音频元素 --&gt;
+  &lt;!-- 🎵 背景音乐修改指南：
+       【方法1：直接修改HTML文件】
+       1. 下载此HTML文件到本地
+       2. 用记事本/VSCode等编辑器打开
+       3. 找到下方第468行的&lt;source&gt;标签
+       4. 将src=&quot;当前链接&quot;替换为src=&quot;您的音乐链接&quot;
+       5. 保存文件后重新打开
+       
+       【方法2：使用在线工具】
+       1. 将您的MP3文件上传到：
+          - 阿里云OSS: https://www.aliyun.com/product/oss
+          - 腾讯云COS: https://cloud.tencent.com/product/cos
+          - 七牛云: https://www.qiniu.com/products/kodo
+       2. 获取文件的公开访问URL（必须是https://开头）
+       3. 按方法1修改HTML中的链接
+       
+       【当前音乐链接问题】
+       您的链接是http://（不安全），建议改为https://
+    
+       如果七牛云支持HTTPS，请联系客服开启
+  --&gt;
+  &lt;audio id=&quot;bgMusic&quot; loop&gt;
+    &lt;source src=&quot;https://background-1395254721.cos.ap-guangzhou.myqcloud.com/%E3%80%90%E5%93%88%E5%88%A9%E6%B3%A2%E7%89%B9%EF%BD%9C%E9%9C%8D%E6%A0%BC%E6%B2%83%E5%85%B9%E5%85%A5%E5%AD%A6%E9%80%9A%E7%9F%A5%E4%B9%A6%E3%80%91%E7%99%BE%E4%B8%87%E7%BA%A7%E5%BD%95%E9%9F%B3%E6%A3%9A%E5%90%AC%E3%80%8AHedwigs-theme%E3%80%8B%E7%94%B5%E5%BD%B1%E3%80%8A%E5%93%88%E5%88%A9%E6%B3%A2%E7%89%B9%E4%B8%8E%E9%AD%94%E6%B3%95%E7%9F%B3%E3%80%8B%E4%B8%BB%E9%A2%98%E6%9B%B2%E3%80%90Hi-Res%E3%80%91.mp3?q-sign-algorithm=sha1&amp;q-ak=AKIDNMTSWQdirjwH402sL1-tskKC0xNm2Wg7yhcDk-BKpqRb1l_9GowKggj-AieeG3Dp&amp;q-sign-time=1768135320;1768138920&amp;q-key-time=1768135320;1768138920&amp;q-header-list=host&amp;q-url-param-list=&amp;q-signature=9fd165fce0f76038bcbf31c96e5e6381adaa5f32&amp;x-cos-security-token=ZIvzzLCiRw7R1OGPg76m612azJUNFpga4ad6de6c6350ec2ef2bbcbed248e85f1P7tZD6xthcrIKvW_GrTuufPJe775UxbVTlwZfIWUnwP9ad60q-UIXCInyTJDhN4FgDhgKTTtmDhrmPpb8eA8hZZxFr01EnokLlZWfWdgOCHBkYnnZz3Cn4ed4l91IBXHoqAsDpQSjCuW8bibhjtVMkZmwNvX-DALRtsw8XZvA0RH075_YoDXMrM9Q9-Gq6_bToQoQp2A2bPz8UxVZzAYcLB_AVtYmMJhARDsS-rad9dvR4UVF_Ye7QsD1-rIcj8fpJ__CsKpCwxAOrOwxcpBY9H7G_vgUQbD3JAHnQpPMp7hceBT_cYPmY7gaeBVsHu1XUTLsdDuaAX-Qo1DIRQwVuo7f0p-USZdU4zoGGCtBylq8b3qY5zdURL6dqZruW5WVMcPxsyTUkFG6TTAkECDK5SryL2YImvlD1XA1-cY-2vjLh8pKxv1i0pQMZM25MPlCVi3WbHhq0cWMi7aPc4HHEvoITyrmWUS9VAHvKH1Wb3pPsVIA3Gt9WlTJtrOBAFbJUSL4C-a4wICzSkbF07_hr-UnWmIleLyCzTs8LWj7nY3kRU68M8Rgb9oMRnPmpIWjX9Z72W74jVD7LuBp6ZlckLt0fb1Udaxdu_FojJEaT88Z6g6a81HfdsT3LObvma4lKvuN2RvCGAzBLj7OJwUr3B7ItQiQUOjIirzQjtTPu-WZPRAPcwR3mNIdLXTM1vaX9ZfRJA_oVHNI4G7T1zEjpVhyZqZL8U0sl6u6AhHM4HLuWNWPbhCKsmNN0WlmyI8RfKnvmo21oe6DTgznarAlP8fayHNo-kEHwk-Dhhw0AiEwxCaUcPYTQF64-yA0Spf5Oh2WxzeXWEZ_u03TVkBH3w3LNrByK7DEYpTe3DnNFJ9ZXzYpv54UjmGP5iPxAWTXPrfvwd9GAcaC71vEgqp9XmIvck0AHUYJ1HzmrEVR0_9XDSfuTT53fEetfAJypXmUNWeNvkz5cTstTwlzgR5Vd8hc8QqQmeXsE8r9zGFt62NDqw4veQrgw2ZaBsqjnkcCbnvqmkzQ3DW-K3xl954WYi-xKudJxQqcnsg5UqbGHlUvzX5sRemtzw-Yh3QPP2tCnmUEziaLwEx9mrLHnR7BRv4em9krzB6iEXp-Adjj_kaviCOi7mw_HpBRKij-WBUKLFCcde7Wz3DTeiOHg-uwNUM-xFy5Ncb-DQ6GcJHuFiH8ZcQrGgEXtORKOKoa_HfcN8zPK5e4HtOxa6E_ILkQRERV1C5NY2v3KuVSQm-E9Y&quot; type=&quot;audio/mpeg&quot;&gt;
+  &lt;/audio&gt;
+  
+  &lt;script type=&quot;module&quot;&gt;
+    // 简历数据配置
+    const resumeData = {
+      gryffindor: {
+        title: '基本信息 | Basic Information',
+        content: `姓名：贺林（He Lin）
+Name: He Lin
+
+性别：男
+Gender: Male
+
+政治面貌：中共党员
+Political Affiliation: Communist Party of China (CPC) Member
+
+联系方式：
+Contact Information:
+电话 | Phone: 13317497342
+邮箱 | Email: helin2019gt@outlook.com
+
+学历：本科
+Degree: Bachelor's Degree
+
+专业：英语师范
+Major: English Teaching`
+      },
+      slytherin: {
+        title: '工作经历 | Work Experience',
+        content: `2022年8月至今：珠海市香洲区南湾小学
+August 2022 - Present: Nanwan Primary School, Xiangzhou District, Zhuhai City
+&bull; 3-6年级英语教学、信息化教案设计
+&bull; Teach English to grades 3-6; design interactive lesson plans integrating information technology
+
+2021年7月-2022年7月：Lingobus清华大学苏世民书院项目
+July 2021 - July 2022: Lingobus Tsinghua University Schwarzman College Program
+&bull; 国际学生汉语工作坊协调、跨文化活动组织
+&bull; Coordinated Chinese language workshops for international students
+
+2020年8月-2021年6月：美国西弗吉尼亚州莫农加利亚县学校
+August 2020 - June 2021: Monongalia County Schools, West Virginia, USA
+&bull; K-5年级TCFL教学、游戏化教学提升口语能力30%
+&bull; Taught TCFL to K-5 students; improved oral proficiency by 30%
+
+2019年7月-2020年7月：美国明尼苏达州里奇代尔小学
+July 2019 - July 2020: Ridgedale Elementary School, Minnesota, USA
+&bull; 双语教案开发、多元文化学生辅导
+&bull; Developed bilingual lesson plans; supported diverse students
+
+2016年5月-2019年3月：泰国黎府马哈泰教育学校
+May 2016 - March 2019: Holy Redeemer Loei School, Thailand
+&bull; 中文听说教学、课外中文俱乐部组织
+&bull; Taught TCFL; organized extracurricular Chinese clubs`
+      },
+      hufflepuff: {
+        title: '荣誉与技能 | Honors &amp; Skills',
+        content: `【荣誉 | Honors】
+
+2024年：珠海市&quot;双融双创&quot;教师信息素养提升实践活动 市级优秀
+2024: Municipal Excellent Award, Zhuhai Teachers' Information Literacy Program
+
+2023年：珠海市作业设计一等奖（团队）
+2023: First Prize (Team), Zhuhai Homework Design Competition
+
+2022年：广东省基础教育精品课例
+2022: Excellent Lesson Example, Basic Education in Guangdong Province
+
+香洲区&quot;课对课&quot;微课程 多节课例获奖
+Multiple Micro-Course Awards, Xiangzhou District
+
+【技能 | Skills】
+
+专业证书：英语专业八级（TEM-8）、TESOL证书、普通话二甲
+Professional Certifications: TEM-8, TESOL Certificate, Mandarin Level 2 Grade A
+
+资质：教育部公派出国教师
+Qualifications: Government-Sponsored Teacher
+
+语言能力：中文母语，英语流利（听说读写）
+Language Proficiency: Native Chinese, Fluent English`
+      },
+      ravenclaw: {
+        title: '教育背景 | Educational Background',
+        content: `学历：本科
+Degree: Bachelor's Degree
+
+专业：英语师范
+Major: English Teaching
+
+核心能力：
+Core Competencies:
+&bull; 跨文化教学经验（中国、美国、泰国）
+&bull; Cross-cultural teaching experience (China, USA, Thailand)
+
+&bull; 信息化教学设计能力
+&bull; Information technology integration in teaching
+
+&bull; 双语教学能力（中英文）
+&bull; Bilingual teaching proficiency (Chinese &amp; English)
+
+&bull; 游戏化教学方法
+&bull; Game-based teaching methodology
+
+&bull; 课程开发与教案设计
+&bull; Curriculum development and lesson planning`
+      },
+      hogwarts: {
+        title: '教学宣言 | Teaching Oath',
+        content: `九年一线教学经验，专业功底扎实，擅长与不同年龄段学生互动沟通。真心热爱教育事业，珍视校园的活力与温暖，对每一位学生满怀耐心与责任心。
+
+With 9 years of front-line teaching experience, I have a solid professional foundation and excel at engaging with students across age groups.
+I sincerely love the education profession and cherish the vitality and warmth of the campus.
+具备较强的快速学习能力、团队协作能力和组织协调能力，勇于接受挑战、抗压性强。
+
+I demonstrate strong learning agility, teamwork, and organizational skills, and am willing to embrace challenges with high stress tolerance.
+始终坚信&quot;越努力越幸运&quot;，未来将以积极心态履职尽责，在实践中持续成长，致力于成为更优秀的教育工作者。
+
+Guided by the belief that &quot;the harder you work, the luckier you get&quot;, I will perform my duties with a positive attitude, continue to grow through practice, and strive to become a more outstanding educator.`
+      }
+    };
+    // DOM元素
+    const splashScreen = document.getElementById('splash-screen');
+    const mainScreen = document.getElementById('main-screen');
+    const detailScreen = document.getElementById('detail-screen');
+    const avatarBtn = document.getElementById('avatarBtn');
+    const musicControl = document.getElementById('musicControl');
+    const backBtn = document.getElementById('backBtn');
+    const bgMusic = document.getElementById('bgMusic');
+    const detailTitle = document.getElementById('detailTitle');
+    const resumeContent = document.getElementById('resumeContent');
+    const banners = document.querySelectorAll('.banner');
+    
+    let isMusicPlaying = false;
+    let currentTypingAnimation = null;
+    // 页面加载时自动尝试播放音乐
+    window.addEventListener('load', () =&gt; {
+      // 延迟500ms后自动播放
+      setTimeout(() =&gt; {
+        bgMusic.play().then(() =&gt; {
+          isMusicPlaying = true;
+          musicControl.classList.add('active');
+          musicControl.textContent = '🎵';
+        }).catch(err =&gt; {
+          console.log('自动播放被浏览器阻止，需要用户交互后播放');
+          // 自动播放失败时，显示音乐按钮提示用户
+  
+          musicControl.classList.add('active');
+          musicControl.textContent = '🔇';
+        });
+      }, 500);
+    });
+    // 启动页点击事件
+    avatarBtn.addEventListener('click', () =&gt; {
+      // 如果音乐未播放，尝试播放
+      if (!isMusicPlaying) {
+        bgMusic.play().then(() =&gt; {
+          isMusicPlaying = true;
+          musicControl.classList.add('active');
+          musicControl.textContent = '🎵';
+        }).catch(err =&gt; {
+          console.log('音频播放失败:', err);
+        });
+    
+      }
+      
+      // 页面切换动画
+      anime({
+        targets: splashScreen,
+        opacity: [1, 0],
+        duration: 800,
+        easing: 'easeOutExpo',
+        complete: () =&gt; {
+          splashScreen.classList.add('hidden');
+          mainScreen.classList.add('active');
+          
+ 
+          // 旗帜入场动画
+          anime({
+            targets: '.banner',
+            translateY: [50, 0],
+            opacity: [0, 1],
+            duration: 800,
+            delay: anime.stagger(150),
+            easing: 'easeOutExpo'
+          });
+        }
+      });
+    });
+    // 音乐控制按钮
+    musicControl.addEventListener('click', () =&gt; {
+      if (isMusicPlaying) {
+        bgMusic.pause();
+        musicControl.textContent = '🔇';
+        isMusicPlaying = false;
+      } else {
+        bgMusic.play();
+        musicControl.textContent = '🎵';
+        isMusicPlaying = true;
+      }
+    });
+    // 旗帜点击事件
+    banners.forEach(banner =&gt; {
+      banner.addEventListener('click', () =&gt; {
+        const house = banner.dataset.house;
+        const data = resumeData[house];
+        
+        // 切换到详情页
+        mainScreen.classList.remove('active');
+        detailScreen.classList.add('active');
+        
+        // 设置标题
+        detailTitle.textContent = data.title;
+  
+      
+        // 清空内容
+        resumeContent.innerHTML = '';
+        
+        // 初始化活点地图效果
+        const detailContent = document.querySelector('.detail-content');
+        detailContent.classList.remove('revealing');
+        
+        // 延迟启动打字机效果（等待入场动画）
+        setTimeout(() =&gt; {
+          typeWriter(data.content, resumeContent, detailContent);
+        }, 600);
+        
+        // 详情页入场动画
+        anime({
+          targets: '.detail-content',
+          scale: [0.9, 1],
+          opacity: [0, 1],
+          duration: 600,
+          easing: 'easeOutExpo'
+        });
+ 
+      });
+    });
+    // 返回按钮
+    backBtn.addEventListener('click', () =&gt; {
+      // 停止打字机动画
+      if (currentTypingAnimation) {
+        currentTypingAnimation.pause();
+        currentTypingAnimation = null;
+      }
+      
+      // 清空内容
+      resumeContent.innerHTML = '';
+      detailTitle.textContent = '';
+      
+      // 重置活点地图效果
+      const detailContent = document.querySelector('.detail-content');
+  
+      detailContent.classList.remove('revealing');
+      
+      // 切换回主界面
+      anime({
+        targets: '.detail-content',
+        scale: [1, 0.9],
+        opacity: [1, 0],
+        duration: 500,
+        easing: 'easeInExpo',
+        complete: () =&gt; {
+          detailScreen.classList.remove('active');
+         
+  mainScreen.classList.add('active');
+        }
+      });
+    });
+    // 活点地图打字机效果（整体从模糊到清晰）
+    function typeWriter(text, element, container, speed = 20) {
+      let index = 0;
+      const chars = text.split('');
+      const totalChars = chars.length;
+      
+      // 启动整体模糊到清晰动画
+      setTimeout(() =&gt; {
+        container.classList.add('revealing');
+      }, 100);
+      function type() {
+        if (index &lt; chars.length) {
+          // 创建字符span元素
+          const charSpan = document.createElement('span');
+          charSpan.className = 'char';
+          charSpan.textContent = chars[index];
+          charSpan.style.animationDelay = '0s';
+          element.appendChild(charSpan);
+          
+          index++;
+          currentTypingAnimation = anime({
+            duration: speed,
+            complete: type
+          });
+        } else {
+          currentTypingAnimation = null;
+        }
+      }
+      
+      type();
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;" frameborder="0">
+    </iframe>
+  </div>
+
+</body>
+
+</html>
